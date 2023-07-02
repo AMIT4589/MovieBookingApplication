@@ -1,67 +1,10 @@
-<nav class="navbar bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand">Hello</a>
-    <a class="navbar-brand"><button routerLink="/login" class="btn btn-danger">Login</button>
-        <button routerLink="/signup"  style="margin-left:10%;" class="btn btn-danger">SignUp</button>
-    </a>
-    
-    
-    </div>  
-  </nav>
-<div *ngIf = "images && images.length > 0" class="carousel-container">
-    <img
-    [src]="image?.imgSrc" [alt]="image?.imgAlt" [ngClass]="{'image-active':selectedIndex===i}"
-    class="custom-fade"  *ngFor="let image of images; let i = index;">
-    
-    <div style="background-color:transparent;"  *ngFor="let image of images; let i = index;" class="image-info custom-fade" [ngClass]="{'image-info-active':selectedIndex===i}">
-      <!--background-color:rgb(125, 138, 143);-->
-     <!-- <h3 class="mb-3">{{image?.imgHead}}</h3>
-      <p class="location mb-3">
-        <span class="material-symbols-rounded icon">
-          my_location
-          </span>
-        <span>{{image?.imgLoc}}</span>
-      </p>
-      <p>{{image?.imgInfo}}</p>
-      <span class="price">{{image?.imgPrice | currency: 'INR'}}</span>-->
-    </div>
-      
-    <div *ngIf = "indicators" class="carousel-dot-container">
-      <span *ngFor="let dot of images; let i = index;"
-      class="dot"
-      [ngClass]="{'active':selectedIndex===i}"
-      (click)="selectImage(i)"
-      >
-      </span>
-    </div>
-  
-    <button *ngIf="controls" class="btn-carousel btn-prev"
-    (click)="onPrevClick()">
-        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"></i>
-    </button>
-  
-    <button *ngIf="controls" class="btn-carousel btn-next" (click)="onNextClick()">
-        <i class="fas fa-arrow-circle-right icon-carousel icon-next"></i>
-    </button>
-  
-  </div>
-  
-  
-      <div class="container">
-      
-      </div>
+<body style="background-image:url('./assets/images/background3.jpg');background-size: 100% 100%;height: 100vh;position:fixed;width:100vw;">
 
-  
-  
-  <nav style="height: 3.6vh;"class="navbar bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand"></a>
-        <a class="navbar-brand"></a>
-        <a class="navbar-brand"></a>
-        <a class="navbar-brand"></a>
-        
-   
-    
-    </div>  
-  </nav>
-  
+
+<div  style="position:relative; left:80px; top:40%;">
+  <h1 style="position: relative;left:250px;">WELCOME </h1>
+  <h1 >TO OUR MOVIE BOOKING APPLICATION </h1>
+  <br>
+  <button style="position: relative;left:300px;"class="btn btn-light"routerLink="/login">Continue</button>
+</div>
+</body>

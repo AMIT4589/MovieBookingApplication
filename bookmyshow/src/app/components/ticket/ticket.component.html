@@ -1,1 +1,147 @@
-<p>ticket works!</p>
+<div style="background-color: rgb(20, 92, 173);height:100vh;width:100%">
+<nav class="navbar" style="background-color: rgb(0, 47, 255);">
+        <div class="container-fluid">
+            
+        <a style="position: relative;right: -96%;"class="navbar-brand"><button (click)="logout()"class="btn btn-info">Logout</button></a>
+        <button style="position: absolute;right:100px;"routerLink="/movie"class="btn btn-info">Movies</button>
+     
+        </div>  
+    </nav>
+    <button style="margin-top: 15px;margin-bottom: 15px;"type="button" class="btn btn-success float-end"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal3"
+                (click)="addTicket()"
+                
+                >
+                Book Ticket
+                </button> 
+<table style="margin-top: 15px;" style="margin-top: 200px;" *ngIf="role==='Admin'"class="table table-danger mt-5 ">
+        <thead>
+                
+            <tr>
+                
+
+                        <th>
+                    Ticket ID
+                </th>
+                
+                <th>
+                    Movie Name
+                </th>
+                <th>
+                    Theatre Name
+                </th>
+                <th>
+                    Number Of Tickets
+                </th>
+                
+                <th>
+                    Status
+                </th>
+                <th>
+                    Operations
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let data of tickets">
+                <td>{{data.ticketId}}</td>
+                <td>{{data.movieName}}</td>
+                <td>{{data.theatreName}}</td>
+                <td>{{data.numberOfTicketsBooked}}</td>
+                <td>{{data.ticketStatus}}</td>
+                <td><button  type="button" class="btn btn-success mr-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal4"
+                    (click)="editTicket(data)"
+                    
+                    >
+                   Update Ticket
+    
+                </button>
+                <button type="button" class="btn btn-danger mr-1"
+                (click)="deleteTicket(data.ticketId)"
+            
+                >
+                    Delete Ticket
+                </button>
+                
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+    
+            <div style="background-color:rgb(0, 47, 255);" class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+            <button type="button "class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style="background-color:rgb(0, 183, 255);" class="modal-body">
+                <div class="input-group mb-3">
+                    <span style="background-color:rgb(25, 211, 124);" class="input-group-text">
+                        MovieName
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="MovieName">
+                    <span style="background-color:rgb(25, 211, 124);" class="input-group-text">
+                        TheatreName
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="TheatreName">
+                    <span style="background-color:rgb(25, 211, 124);" class="input-group-text">
+                        TotalTicketsAlloted
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="NumberOfTicketsBooked">
+                    <span style="background-color:rgb(25, 211, 124);" class="input-group-text">
+                        Status
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="Status">
+                </div>
+            
+            </div>
+        <div style="background-color: rgb(0, 47, 255);  " class="modal-footer"> <a class="btn btn-success" (click)="bookTicket()" target="_blank">Create</a></div>
+        
+        </div>
+    
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+    
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">{{modalTitle}}</h5>
+            <button type="button "class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        TicketId
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="TicketId">
+                    <span class="input-group-text">
+                        MovieName
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="MovieName">
+                    <span class="input-group-text">
+                        TheatreName
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="TheatreName">
+                    <span class="input-group-text">
+                        TotalTicketsAlloted
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="NumberOfTicketsBooked">
+                    <span class="input-group-text">
+                        Status
+                    </span>
+                    <input type="text" class="form-control" [(ngModel)]="TicketStatus">
+                </div>
+            
+            </div>
+        <div class="modal-footer"> <button type="button" (click)="updateTicket()">Update</button></div>
+        </div>
+    
+        </div>
+    </div>
+    </div>

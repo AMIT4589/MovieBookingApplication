@@ -22,6 +22,7 @@ export class MovieComponent implements OnInit{
   NumberOfTicketsBooked=0;
   Status="Available";
   a:any;
+  searchMovie='';
   public fullName:string="";
   constructor(private api:ApiService,private auth:AuthService,private userStore:UserStoreService,private http:HttpClient){}
   ngOnInit() {
@@ -53,7 +54,7 @@ export class MovieComponent implements OnInit{
     this.MovieName="";
     this.TheatreName="";
     this.TotalTicketsAlloted=0;
-    
+    this.refreshList();
   }
   editClick(film:any){
     this.modalTitle="Update Movie"
@@ -70,7 +71,7 @@ export class MovieComponent implements OnInit{
         Status:this.Status };
     this.http.put('https://localhost:7039/api/v1.0/moviebooking/updatemoviebyadmin',val)
     .subscribe(res=>{
-      alert(res.toString());
+      alert("Movie has been successfully updated");
       this.refreshList();
     });
   }
@@ -83,7 +84,7 @@ export class MovieComponent implements OnInit{
     };
     this.http.post('https://localhost:7039/api/v1.0/moviebooking/add',val)
     .subscribe(res=>{
-      alert(res.toString());
+      alert("Movie has been successfully added!");
       this.refreshList();
     });
   }
@@ -91,7 +92,7 @@ export class MovieComponent implements OnInit{
     if(confirm('Are you sure?')){
       this.http.delete('https://localhost:7039/api/v1.0/moviebooking/delete/'+id)
       .subscribe(res=>{
-        alert(res.toString());
+        alert("Movie has been successfullly deleted!");
       
         this.refreshList();
       });

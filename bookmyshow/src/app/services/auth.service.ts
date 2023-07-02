@@ -19,7 +19,7 @@ export class AuthService {
   }
   signOut(){
     localStorage.clear();
-    this.router.navigate(['/home'])
+    this.router.navigate(['dashboard'])
   }
   storeToken(tokenValue:string){
       localStorage.setItem('token',tokenValue)

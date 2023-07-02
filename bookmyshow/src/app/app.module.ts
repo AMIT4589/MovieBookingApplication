@@ -16,6 +16,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchPipe } from './search.pipe';
 import { ResetComponent } from './components/reset/reset.component';
+import { SecondPageComponent } from './components/second-page/second-page.component';
 
 
 
@@ -30,6 +31,7 @@ import { ResetComponent } from './components/reset/reset.component';
     HomeComponent,
     SearchPipe,
     ResetComponent,
+    SecondPageComponent,
 
   ],
   imports: [
